@@ -9,7 +9,54 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
-  <script defer src="script.js"></script>
+  
+  <!-- === ADDED STYLES for IMAGES and LAYOUT === -->
+  <style>
+    /* Style for the images inside the competition cards */
+    .card-image {
+      width: 100%;
+      aspect-ratio: 16 / 9; /* Maintain a consistent aspect ratio */
+      overflow: hidden;
+    }
+    .card-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure image covers the area without distortion */
+      display: block;
+    }
+    
+    /* Ensure the card respects the rounded corners of the image */
+    .competition {
+        overflow: hidden; /* This is key to making top corners round */
+        display: flex;
+        flex-direction: column;
+    }
+
+    /* Make the hero image responsive */
+    .hero-art img {
+        width: 100%;
+        max-width: 500px; /* Adjust as needed */
+        height: auto;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+    
+    /* Remove the old hero art styling */
+    .hero-art .sun, .hero-art .ray {
+        display: none;
+    }
+
+    /* Create a grid layout for the competition cards on larger screens */
+    @media (min-width: 768px) {
+      .competitions-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+      }
+    }
+  </style>
+  <!-- ============================================= -->
+
 </head>
 <body>
 <a class="skip-link" href="#main">Laktawan sa pangunahing nilalaman</a>
@@ -47,9 +94,9 @@
         <span class="countdown-label">Countdown:</span> <span id="countdown">Loading…</span>
       </div>
     </div>
+    <!-- === UPDATED HERO ART === -->
     <div class="hero-art" aria-hidden="true">
-      <div class="sun"></div>
-      <div class="ray r1"></div><div class="ray r2"></div><div class="ray r3"></div><div class="ray r4"></div><div class="ray r5"></div>
+        <img src="3.png" alt="Buwan ng Wika 2025 Banner">
     </div>
   </div>
 </section>
@@ -66,160 +113,166 @@
   <section id="competitions" class="section alt">
     <div class="container">
       <h2>Mga Timpalak</h2>
+      
+      <!-- === ADDED a wrapper for the grid layout === -->
+      <div class="competitions-grid">
 
-      <article class="card competition">
-        <header class="card-header">
-          <h3>Malayang Taludturan <span class="tag">FREE VERSE</span></h3>
-          <p class="small">Baitang 11–12 at Kolehiyo • Oras: 3–5 minuto • Kasuotan: Filipiniana/Barong o katutubong kasuotan</p>
-        </header>
-        <div class="card-body">
-          <details>
-            <summary>Mechanics</summary>
-            <ul>
-              <li>Bukas sa lahat ng mag-aaral mula sa Baitang 11–12 at kolehiyo.</li>
-              <li>Ang tulang bibigkasin ay nasa Wikang Filipino at umiikot sa temang pangkalahatan.</li>
-              <li>Orihinal na piyesa sa pormang <em>malayang taludturan</em> at nakabatay sa tema.</li>
-              <li>Nakasuot ng Filipiniana/Barong o katutubong kasuotan.</li>
-              <li>Haba ng pagtatanghal: <strong>3–5 minuto.</strong></li>
-            </ul>
-          </details>
-          <details open>
-            <summary>Criteria (100%)</summary>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Pamantayan</th><th>Porsiyento</th></tr></thead>
-                <tbody>
-                  <tr><td>Nilalaman ng Tula</td><td>40%</td></tr>
-                  <tr><td>Baryasyon ng Boses</td><td>30%</td></tr>
-                  <tr><td>Emosyon o Damdamin</td><td>20%</td></tr>
-                  <tr><td>Kumpas o Galaw</td><td>10%</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          
-        </div>
-      </article>
+        <!-- MALAYANG TALUDTURAN -->
+        <article class="card competition">
+          <!-- === IMAGE ADDED HERE === -->
+          <div class="card-image">
+              <img src="4.png" alt="Banner ng kumpetisyon para sa Malayang Taludturan">
+          </div>
+          <header class="card-header">
+            <h3>Malayang Taludturan <span class="tag">FREE VERSE</span></h3>
+            <p class="small">Baitang 11–12 at Kolehiyo • Oras: 3–5 minuto • Kasuotan: Filipiniana/Barong o katutubong kasuotan</p>
+          </header>
+          <div class="card-body">
+            <details>
+              <summary>Mechanics</summary>
+              <ul>
+                <li>Bukas sa lahat ng mag-aaral mula sa Baitang 11–12 at kolehiyo.</li>
+                <li>Ang tulang bibigkasin ay nasa Wikang Filipino at umiikot sa temang pangkalahatan.</li>
+                <li>Orihinal na piyesa sa pormang <em>malayang taludturan</em> at nakabatay sa tema.</li>
+                <li>Nakasuot ng Filipiniana/Barong o katutubong kasuotan.</li>
+                <li>Haba ng pagtatanghal: <strong>3–5 minuto.</strong></li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Criteria (100%)</summary>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Pamantayan</th><th>Porsiyento</th></tr></thead>
+                  <tbody>
+                    <tr><td>Nilalaman ng Tula</td><td>40%</td></tr>
+                    <tr><td>Baryasyon ng Boses</td><td>30%</td></tr>
+                    <tr><td>Emosyon o Damdamin</td><td>20%</td></tr>
+                    <tr><td>Kumpas o Galaw</td><td>10%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </article>
 
-      <article class="card competition">
-        <header class="card-header">
-          <h3>Sayaw ng Tinikling <span class="tag">TINIKLING DANCE</span></h3>
-          <p class="small">Baitang 12 • 20–30 miyembro bawat grupo • Oras: 5–7 minuto (lagpas 7 min = -5 pts) • Tradisyonal na tugtugin lamang</p>
-        </header>
-        <div class="card-body">
-          <details>
-            <summary>Mechanics</summary>
-            <ul>
-              <li>Bukas sa mag-aaral ng Baitang 12; bawat grupo ay may 20–30 miyembro.</li>
-              <li>Gumamit ng <strong>tradisyonal/katutubong tugtugin</strong> lamang (walang remix/mashup/bagong bersyon).</li>
-              <li>Isumite ang musika sa <strong>MP3</strong> dalawang (2) araw bago ang patimpalak; malinis ang liriko at tunog.</li>
-              <li>Haba ng pagtatanghal: <strong>5–7 minuto</strong>; ang oras ay magsisimula sa unang galaw o tunog.</li>
-              <li>Lagpas 7 minuto: <strong>may kaltas na 5 puntos</strong> sa kabuuan.</li>
-              <li>Kasuotan: Filipiniana o angkop na tradisyonal na kasuotan para sa Tinikling.</li>
-            </ul>
-          </details>
-          <details open>
-            <summary>Criteria (100 pts)</summary>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Kategorya</th><th>Puntos</th></tr></thead>
-                <tbody>
-                  <tr><td>Oras at Ritmo</td><td>20</td></tr>
-                  <tr><td>Teknik at Pagganap</td><td>20</td></tr>
-                  <tr><td>Porma at Tindig</td><td>15</td></tr>
-                  <tr><td>Koordinasyon at Pagtutulungan</td><td>15</td></tr>
-                  <tr><td>Kasuotan at Presentasyon</td><td>10</td></tr>
-                  <tr><td>Malikhaing Pagdadala at Estilo</td><td>10</td></tr>
-                  <tr><td>Kabuuang Epekto</td><td>10</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          
-        </div>
-      </article>
+        <!-- SAYAW NG TINIKLING -->
+        <article class="card competition">
+          <!-- === IMAGE ADDED HERE === -->
+          <div class="card-image">
+              <img src="5.png" alt="Banner ng kumpetisyon para sa Sayaw ng Tinikling">
+          </div>
+          <header class="card-header">
+            <h3>Sayaw ng Tinikling <span class="tag">TINIKLING DANCE</span></h3>
+            <p class="small">Baitang 12 • 20–30 miyembro bawat grupo • Oras: 5–7 minuto (lagpas 7 min = -5 pts) • Tradisyonal na tugtugin lamang</p>
+          </header>
+          <div class="card-body">
+            <details>
+              <summary>Mechanics</summary>
+              <ul>
+                <li>Bukas sa mag-aaral ng Baitang 12; bawat grupo ay may 20–30 miyembro.</li>
+                <li>Gumamit ng <strong>tradisyonal/katutubong tugtugin</strong> lamang (walang remix/mashup/bagong bersyon).</li>
+                <li>Isumite ang musika sa <strong>MP3</strong> dalawang (2) araw bago ang patimpalak; malinis ang liriko at tunog.</li>
+                <li>Haba ng pagtatanghal: <strong>5–7 minuto</strong>; ang oras ay magsisimula sa unang galaw o tunog.</li>
+                <li>Lagpas 7 minuto: <strong>may kaltas na 5 puntos</strong> sa kabuuan.</li>
+                <li>Kasuotan: Filipiniana o angkop na tradisyonal na kasuotan para sa Tinikling.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Criteria (100 pts)</summary>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Kategorya</th><th>Puntos</th></tr></thead>
+                  <tbody>
+                    <tr><td>Oras at Ritmo</td><td>20</td></tr>
+                    <tr><td>Teknik at Pagganap</td><td>20</td></tr>
+                    <tr><td>Porma at Tindig</td><td>15</td></tr>
+                    <tr><td>Koordinasyon at Pagtutulungan</td><td>15</td></tr>
+                    <tr><td>Kasuotan at Presentasyon</td><td>10</td></tr>
+                    <tr><td>Malikhaing Pagdadala at Estilo</td><td>10</td></tr>
+                    <tr><td>Kabuuang Epekto</td><td>10</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </article>
 
-      <article class="card competition">
-        <header class="card-header">
-          <h3>Digital na Slogan</h3>
-          <p class="small">Baitang 11–12 at Kolehiyo • JPEG/PNG (max 5MB) • Mensaheng may <strong>15 salita</strong> lamang</p>
-        </header>
-        <div class="card-body">
-          <details>
-            <summary>Mechanics</summary>
-            <ul>
-              <li>Bukas sa Baitang 11–12 at kolehiyo; tig-isang entry lamang.</li>
-              <li>Ang nilalaman ay tumatalima sa temang pangkalahatan.</li>
-              <li>Gamitin ang anumang digital art platform; isumite bilang JPEG/PNG (max 5MB).</li>
-              <li>Maikli at makabuluhan ang mensahe: <strong>binubuo ng 15 salita</strong> lamang sa Filipino at/o katutubong wika; iwasan ang offensive/ diskriminatibo na nilalaman.</li>
-              <li>Pasa sa pamamagitan ng email o Google Form.</li>
-            </ul>
-          </details>
-          <details open>
-            <summary>Criteria (100%)</summary>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Pamantayan</th><th>Porsiyento</th></tr></thead>
-                <tbody>
-                  <tr><td>Kaangkupan sa Tema</td><td>30%</td></tr>
-                  <tr><td>Orihinalidad at Pagkamalikhain</td><td>25%</td></tr>
-                  <tr><td>Estetika ng Digital Design</td><td>20%</td></tr>
-                  <tr><td>Epekto ng Mensahe</td><td>25%</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-          
-        </div>
-      </article>
+        <!-- DIGITAL NA SLOGAN -->
+        <article class="card competition">
+          <!-- === IMAGE ADDED HERE === -->
+          <div class="card-image">
+              <img src="6.png" alt="Banner ng kumpetisyon para sa Digital na Slogan">
+          </div>
+          <header class="card-header">
+            <h3>Digital na Slogan</h3>
+            <p class="small">Baitang 11–12 at Kolehiyo • JPEG/PNG (max 5MB) • Mensaheng may <strong>15 salita</strong> lamang</p>
+          </header>
+          <div class="card-body">
+            <details>
+              <summary>Mechanics</summary>
+              <ul>
+                <li>Bukas sa Baitang 11–12 at kolehiyo; tig-isang entry lamang.</li>
+                <li>Ang nilalaman ay tumatalima sa temang pangkalahatan.</li>
+                <li>Gamitin ang anumang digital art platform; isumite bilang JPEG/PNG (max 5MB).</li>
+                <li>Maikli at makabuluhan ang mensahe: <strong>binubuo ng 15 salita</strong> lamang sa Filipino at/o katutubong wika; iwasan ang offensive/ diskriminatibo na nilalaman.</li>
+                <li>Pasa sa pamamagitan ng email o Google Form.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Criteria (100%)</summary>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Pamantayan</th><th>Porsiyento</th></tr></thead>
+                  <tbody>
+                    <tr><td>Kaangkupan sa Tema</td><td>30%</td></tr>
+                    <tr><td>Orihinalidad at Pagkamalikhain</td><td>25%</td></tr>
+                    <tr><td>Estetika ng Digital Design</td><td>20%</td></tr>
+                    <tr><td>Epekto ng Mensahe</td><td>25%</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </article>
 
-      <article class="card competition">
-        <header class="card-header">
-          <h3>Katutubong Kasuotan ng Bawat Rehiyon</h3>
-          <p class="small">Kolehiyo • 2 kinatawan bawat seksyon (1 lalaki, 1 babae) • Maikling paliwanag tungkol sa kasuotan</p>
-        </header>
-        <div class="card-body">
-          <details>
-            <summary>Mechanics</summary>
-            <ul>
-              <li>Bukas sa lahat ng mag-aaral mula <strong>kolehiyo</strong>; bawat seksyon ay may dalawang kinatawan (1 lalaki at 1 babae).</li>
-              <li>Pumili ng rehiyon (hal. Cordillera, Bicol, Visayas, Mindanao, Ilocos, Central Luzon, MIMAROPA, NCR) at magsuot ng tradisyonal na kasuotan.</li>
-              <li>Maaaring orihinal, hiniram, o nilikha ang kasuotan ngunit dapat sumusunod sa <strong>tradisyonal na disenyo at simbolismo</strong>.</li>
-              <li>Magbigay ng maikling paliwanag (oral o nakasulat) ukol sa kasaysayan, materyales, at kahulugan; maaaring samahan ng musika/sayaw/spoken word.</li>
-            </ul>
-          </details>
-          <details>
-            <summary>Halimbawa ng mga Rehiyon &amp; Kasuotan</summary>
-            <ul class="grid two">
-              <li><strong>Cordillera (Ifugao/Kalinga):</strong> bahag, tapis, hinabing telang ikat.</li>
-              <li><strong>Bicol:</strong> makukulay na baro’t saya na may burda; natatanging lokal na disenyo.</li>
-              <li><strong>Visayas:</strong> hablon/piña, kimona at patadyong.</li>
-              <li><strong>Mindanao (T’boli/Maguindanao/Tausug):</strong> tapis, beaded accessories, headpieces.</li>
-              <li><strong>Ilocos:</strong> baro’t saya, camisa/bahag sa katutubo.</li>
-              <li><strong>Central Luzon (Kapampangan):</strong> barong na may burda; terno/balintawak; abáy at tapis.</li>
-              <li><strong>MIMAROPA (Mangyan/Palawan):</strong> kasuotang hibla ng abaka at lokal na materyales.</li>
-              <li><strong>NCR:</strong> kontemporaryo ngunit gamit pa rin ang barong/terno sa pormal na okasyon.</li>
-            </ul>
-          </details>
-          <details open>
-            <summary>Criteria (100 pts)</summary>
-            <div class="table-wrap">
-              <table>
-                <thead><tr><th>Pamantayan</th><th>Puntos</th></tr></thead>
-                <tbody>
-                  <tr><td>Kaangkupan sa Rehiyon/Kultura</td><td>30</td></tr>
-                  <tr><td>Orihinalidad at Pagkamalikhain</td><td>20</td></tr>
-                  <tr><td>Kabuuang Presentasyon</td><td>20</td></tr>
-                  <tr><td>Kalidad ng Gamit na Materyales</td><td>15</td></tr>
-                  <tr><td>Detalye at Kagandahan</td><td>15</td></tr>
-                </tbody>
-              </table>
-            </div>
-          </details>
-         
-        </div>
-      </article>
-
+        <!-- KATUTUBONG KASUOTAN -->
+        <article class="card competition">
+          <!-- === IMAGE ADDED HERE === -->
+          <div class="card-image">
+              <img src="7.png" alt="Banner ng kumpetisyon para sa Katutubong Kasuotan">
+          </div>
+          <header class="card-header">
+            <h3>Katutubong Kasuotan ng Bawat Rehiyon</h3>
+            <p class="small">Kolehiyo • 2 kinatawan bawat seksyon (1 lalaki, 1 babae) • Maikling paliwanag tungkol sa kasuotan</p>
+          </header>
+          <div class="card-body">
+            <details>
+              <summary>Mechanics</summary>
+              <ul>
+                <li>Bukas sa lahat ng mag-aaral mula <strong>kolehiyo</strong>; bawat seksyon ay may dalawang kinatawan (1 lalaki at 1 babae).</li>
+                <li>Pumili ng rehiyon (hal. Cordillera, Bicol, Visayas, Mindanao, Ilocos, Central Luzon, MIMAROPA, NCR) at magsuot ng tradisyonal na kasuotan.</li>
+                <li>Maaaring orihinal, hiniram, o nilikha ang kasuotan ngunit dapat sumusunod sa <strong>tradisyonal na disenyo at simbolismo</strong>.</li>
+                <li>Magbigay ng maikling paliwanag (oral o nakasulat) ukol sa kasaysayan, materyales, at kahulugan; maaaring samahan ng musika/sayaw/spoken word.</li>
+              </ul>
+            </details>
+            <details open>
+              <summary>Criteria (100 pts)</summary>
+              <div class="table-wrap">
+                <table>
+                  <thead><tr><th>Pamantayan</th><th>Puntos</th></tr></thead>
+                  <tbody>
+                    <tr><td>Kaangkupan sa Rehiyon/Kultura</td><td>30</td></tr>
+                    <tr><td>Orihinalidad at Pagkamalikhain</td><td>20</td></tr>
+                    <tr><td>Kabuuang Presentasyon</td><td>20</td></tr>
+                    <tr><td>Kalidad ng Gamit na Materyales</td><td>15</td></tr>
+                    <tr><td>Detalye at Kagandahan</td><td>15</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </details>
+          </div>
+        </article>
+      </div> <!-- End of .competitions-grid -->
     </div>
   </section>
 </main>
@@ -231,6 +284,47 @@
   </div>
 </footer>
 
+<!-- === JAVASCRIPT FOR COUNTDOWN TIMER === -->
+<script>
+  // Set the date we're counting down to
+  const eventDate = new Date("Aug 18, 2025 00:00:00").getTime();
+  const countdownElement = document.getElementById("countdown");
+
+  // Update the count down every 1 second
+  const countdownInterval = setInterval(function() {
+
+    // Get today's date and time
+    const now = new Date().getTime();
+      
+    // Find the distance between now and the count down date
+    const distance = eventDate - now;
+      
+    // Time calculations for days, hours, minutes and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+      
+    // Output the result in the element with id="countdown"
+    if (distance > 0) {
+        countdownElement.innerHTML = `${days}d ${hours}h ${minutes}m ${seconds}s`;
+    } else {
+        // If the count down is over, write some text 
+        clearInterval(countdownInterval);
+        countdownElement.innerHTML = "NAGSIMULA NA ANG EVENT!";
+    }
+  }, 1000);
+
+  // Also, handle the mobile navigation toggle
+  const navToggle = document.querySelector('.nav-toggle');
+  const primaryNav = document.getElementById('primary-nav');
+
+  navToggle.addEventListener('click', () => {
+    const isExpanded = navToggle.getAttribute('aria-expanded') === 'true';
+    navToggle.setAttribute('aria-expanded', !isExpanded);
+    primaryNav.classList.toggle('is-open');
+  });
+
+</script>
 </body>
 </html>
-```
